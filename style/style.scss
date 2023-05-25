@@ -1,0 +1,120 @@
+:root{
+    --speed:1000ms;
+}
+
+
+body {
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid wheat;
+    width: 100%;
+    height: 100%;
+    .menu{
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        width: 20%;
+        ul{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            li{
+                list-style: none;
+            }
+        }
+    }
+    .zone{
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .slime{
+        position: absolute;
+        width: 100px;
+        height: 80px;
+        left: 10%;
+        bottom: 20%;
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,246,255,1) 0%, rgba(0,246,255,1) 30%, rgba(255,255,255,1) 100%);
+        border-radius: 70px 70px 20px 20px;
+        border: 2px solid rgb(164, 252, 255);
+        
+    }
+    .enemy{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        right: 10%;
+        bottom: 20%;
+        background-color: rgb(115, 255, 0);
+        border-radius: 15px;
+        box-shadow: 0 0 15px 5px rgba(60, 255, 0, 0.589);
+        animation: idle 1.5s linear infinite;
+    }
+    .exp_bar{
+        position: absolute;
+        width: 90%;
+        bottom: 5%;
+        left: 5%;
+        height: 1rem;
+        border: 1px solid wheat;
+        border-radius: 10px;
+        text-align: center;
+    }
+}
+.idle{
+    animation: idle 1.5s infinite linear;
+}
+.attack{
+    animation: attack var(--speed) linear forwards;
+}
+
+@keyframes attack{
+    0%{
+        left:10%;
+        transform: scaleX(1);
+        height: 80px;
+        border-top-left-radius: 70px;
+        border-top-right-radius: 70px;
+    }
+    50%{
+        transform: scaleX(1.1);
+        height: 90px;
+        left: 15%;
+        border-top-left-radius: 150px;
+        border-top-right-radius: 50px;
+    }
+    100%{
+        transform: scaleX(1);
+        height: 80px;
+        left: 10%;
+        border-top-left-radius: 70px;
+        border-top-right-radius: 70px;
+    }
+
+}
+
+@keyframes idle{
+    0%{
+        width: 100px;
+        height: 80px;
+    }
+    50%{
+        width: 110px;
+        height: 60px;
+    }
+    100%{
+        width: 100px;
+        height: 80px;
+    }
+}
